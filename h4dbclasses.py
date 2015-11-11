@@ -14,7 +14,7 @@ class DbInterface:
         'user': 'cmsdaq',
         'password': passwd,
 #        'password': getpass.getpass('DB password: '),
-        'host': 'pcethtb2.cern.ch',
+        'host': 'pcethtb3.cern.ch',
         'database': 'rundb_v2',
         'raise_on_warnings': True,
         'autocommit': True
