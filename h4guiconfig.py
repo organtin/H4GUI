@@ -14,7 +14,7 @@ def configure(self):
     self.nodes=[ # addresses of connected nodes
         ('RC','tcp://pcethtb2.cern.ch:6002'),
         ('RO1','tcp://pcethtb1.cern.ch:6002'),
-        #        ('RO2','tcp://cms-h4-03:6002'),
+        # ('RO2','tcp://cms-h4-03:6002'),
         ('EVTB','tcp://pcethtb2.cern.ch:6502'),
         ('DRCV1','tcp://cms-h4-04.cern.ch:6502'),
         ('DRCV2','tcp://cms-h4-05.cern.ch:6502'),
@@ -23,12 +23,12 @@ def configure(self):
 
     self.keepalive={} # nodes to monitor (comment to remove, never put False)
     self.keepalive['RC']=True
-    self.keepalive['RO1']=True
+#    self.keepalive['RO1']=True
 #    self.keepalive['RO2']=False
     self.keepalive['EVTB']=True
-    self.keepalive['DRCV1']=True
-    self.keepalive['DRCV2']=True
-    self.keepalive['table']=True
+#    self.keepalive['DRCV1']=True
+#    self.keepalive['DRCV2']=True
+#    self.keepalive['table']=True
 
     self.temperatureplot=None # 'http://blabla/tempplot.png' to be displayed for temperature history
 
@@ -44,7 +44,9 @@ def configure(self):
         'free_space': None,
 #        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --eb=pcethtb2 --dr=pcethtb1',
 #        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --eb=pcethtb2 --dr=pcethtb1',
-        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --dr=pcethtb1 --eb=pcethtb2 --drcv=cms-h4-04,cms-h4-05 --drcvrecompile',
+        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb1 --eb=pcethtb1 ',
+#        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --dr=pcethtb1 --eb=pcethtb2 --drcv=cms-h4-04,cms-h4-05 --drcvrecompile',
+#       'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --eb=pcethtb2 --drcv=cms-h4-04,cms-h4-05 --drcvrecompile',
 #        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --eb=pcethtb1 --dr=pcethtb1 --drcv=cms-h4-05 --drcvrecompile',
 #        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --eb=pcethtb2 --dr=pcethtb1',
 #        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --dr=pcethtb1 --drcv=cms-h4-04,cms-h4-05 --drcvrecompile',
@@ -53,9 +55,9 @@ def configure(self):
         }
     
     self.tableposdictionary = OrderedDict()
-    self.tableposdictionary['ZERO']=(0.0,0.0)
+#    self.tableposdictionary['ZERO']=(0.0,0.0)
 #    self.tableposdictionary['CEF3_CENTER']=(194.0,254.0)
-    self.tableposdictionary['CAMERONE_CENTER']=(354.0,271.0)
+##    self.tableposdictionary['CAMERONE_CENTER']=(354.0,271.0)
 #    self.tableposdictionary['CEF3_5deg_CENTER']=(180.5,254)
 #    self.tableposdictionary['CEF3_5deg_+10(X)'] =(190.5,254) 
 #    self.tableposdictionary['CEF3_5deg_+5(X)']=(185.5,254)
@@ -136,43 +138,39 @@ def configure(self):
 #    self.tableposdictionary['CH_6']= (180.2,360.0)
 #    self.tableposdictionary['CH_7']= (200.2,360.0)
 #    self.tableposdictionary['CH_8']= (220.2,360.0)
-#  
+  
 #SPACAL OCT TRANSVERSE SCAN
-#    self.tableposdictionary['top_1']= (100.2,320.0)
-#    self.tableposdictionary['top_2']= (120.2,320.0)
-#    self.tableposdictionary['top_3']= (140.2,320.0)
-#    self.tableposdictionary['top_4']= (160.2,320.0)
-#    self.tableposdictionary['top_5']= (180.2,320.0)
-#    self.tableposdictionary['top_6']= (200.2,320.0)
-#    self.tableposdictionary['top_7']= (220.2,320.0)
-#    self.tableposdictionary['top_8']= (240.2,320.0)
-#    self.tableposdictionary['top_9']= (260.2,320.0)
-#    self.tableposdictionary['top_10']= (280.2,320.0)
-#    self.tableposdictionary['top_11']= (300.2,320.0)
-#
-#    self.tableposdictionary['mid_1']= (100.2,340.0)
-#    self.tableposdictionary['mid_2']= (120.2,340.0)
-#    self.tableposdictionary['mid_3']= (140.2,340.0)
-#    self.tableposdictionary['mid_4']= (160.2,340.0)
-#    self.tableposdictionary['mid_5']= (180.2,340.0)
-#    self.tableposdictionary['mid_6']= (200.2,340.0)
-#    self.tableposdictionary['mid_7']= (220.2,340.0)
-#    self.tableposdictionary['mid_8']= (240.2,340.0)
-#    self.tableposdictionary['mid_9']= (260.2,340.0)
-#    self.tableposdictionary['mid_10']= (280.2,340.0)
-#    self.tableposdictionary['mid_11']= (300.2,340.0)
-#
-#    self.tableposdictionary['bot_1']= (100.2,360.0)
-#    self.tableposdictionary['bot_2']= (120.2,360.0)
-#    self.tableposdictionary['bot_3']= (140.2,360.0)
-#    self.tableposdictionary['bot_4']= (160.2,360.0)
-#    self.tableposdictionary['bot_5']= (180.2,360.0)
-#    self.tableposdictionary['bot_6']= (200.2,360.0)
-#    self.tableposdictionary['bot_7']= (220.2,360.0)
-#    self.tableposdictionary['bot_8']= (240.2,360.0)
-#    self.tableposdictionary['bot_9']= (260.2,360.0)
-#    self.tableposdictionary['bot_10']= (280.2,360.0)
-#    self.tableposdictionary['bot_11']= (300.2,360.0)
+    #self.tableposdictionary['top_1']= (100.2,320.0)
+    #self.tableposdictionary['top_2']= (120.2,320.0)
+    #self.tableposdictionary['top_3']= (140.2,320.0)
+    #self.tableposdictionary['top_4']= (160.2,320.0)
+    #self.tableposdictionary['top_5']= (180.2,320.0)
+    #self.tableposdictionary['top_6']= (200.2,320.0)
+    #self.tableposdictionary['top_7']= (220.2,320.0)
+    #self.tableposdictionary['top_8']= (240.2,320.0)
+    #self.tableposdictionary['top_9']= (260.2,320.0)
+    #self.tableposdictionary['top_10']= (280.2,320.0)
+    #self.tableposdictionary['top_11']= (300.2,320.0)
+    
+#    self.tableposdictionary['mid_1']= (110.2,340.0)
+#    self.tableposdictionary['mid_2']= (140.2,340.0)
+#    self.tableposdictionary['mid_3']= (170.2,340.0)
+#    self.tableposdictionary['mid_4']= (200.2,340.0)
+#    self.tableposdictionary['mid_5']= (230.2,340.0)
+#    self.tableposdictionary['mid_6']= (260.2,340.0)
+#    self.tableposdictionary['mid_7']= (290.2,340.0)
+#    
+    #self.tableposdictionary['bot_1']= (100.2,360.0)
+    #self.tableposdictionary['bot_2']= (120.2,360.0)
+    #self.tableposdictionary['bot_3']= (140.2,360.0)
+    #self.tableposdictionary['bot_4']= (160.2,360.0)
+    #self.tableposdictionary['bot_5']= (180.2,360.0)
+    #self.tableposdictionary['bot_6']= (200.2,360.0)
+    #self.tableposdictionary['bot_7']= (220.2,360.0)
+    #self.tableposdictionary['bot_8']= (240.2,360.0)
+    #self.tableposdictionary['bot_9']= (260.2,360.0)
+    #self.tableposdictionary['bot_10']= (280.2,360.0)
+    #self.tableposdictionary['bot_11']= (300.2,360.0)
 #
 #DRO MAY TEST 
 #    self.tableposdictionary['top_1']= (92.5,218.5)
@@ -216,10 +214,10 @@ def configure(self):
     
     
     otherxtals = OrderedDict() # coordinates seen from the rear face
-    otherxtals['CAMERONE_1']= (-10.0,-10)
-    otherxtals['CAMERONE_2']= (+10,-10)
-    otherxtals['CAMERONE_3']= (-10,+10)
-    otherxtals['CAMERONE_4']= (+10,+10)
+ #   otherxtals['CAMERONE_1']= (-10.0,-10)
+ #   otherxtals['CAMERONE_2']= (+10,-10)
+ #   otherxtals['CAMERONE_3']= (-10,+10)
+ #   otherxtals['CAMERONE_4']= (+10,+10)
 
 #    otherxtals['BGO_CRY_1']= (-20.0,25.1)
 #    otherxtals['BGO_CRY_2']= (2.0,25.0)
@@ -267,6 +265,7 @@ def configure(self):
 #    otherxtals['CEF3_DIAG_NE1']= (3.0,3.0)
 #    otherxtals['CEF3_DIAG_NE2']= (6.0,6.0)
 #    otherxtals['CEF3_DIAG_NE3']= (9.0,9.0)
+#    otherxtals['CEF3_DIAG_NE3_CH']= (14.0,13.0)
 #    otherxtals['CEF3_DIAG_NE4']= (12.0,12.0)
 #
 #    otherxtals['CEF3_DIAG_NW4']= (-12.0,12.0)
@@ -279,5 +278,5 @@ def configure(self):
 #    otherxtals['CEF3_DIAG_SE4']= (12.0,-12.0)
 ##
     for i,j in otherxtals.iteritems():
-#        self.tableposdictionary[i]=(self.tableposdictionary['CEF3_CENTER'][0]+j[0],self.tableposdictionary['CEF3_CENTER'][1]-j[1])
-        self.tableposdictionary[i]=(self.tableposdictionary['CAMERONE_CENTER'][0]+j[0],self.tableposdictionary['CAMERONE_CENTER'][1]-j[1])
+        self.tableposdictionary[i]=(self.tableposdictionary['CEF3_CENTER'][0]+j[0],self.tableposdictionary['CEF3_CENTER'][1]-j[1])
+#        self.tableposdictionary[i]=(self.tableposdictionary['CAMERONE_CENTER'][0]+j[0],self.tableposdictionary['CAMERONE_CENTER'][1]-j[1])
