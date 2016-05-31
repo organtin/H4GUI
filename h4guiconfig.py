@@ -12,13 +12,16 @@ def configure(self):
     self.pubsocket_bind_address='tcp://*:5566' # address of GUI PUB socket
 
     self.nodes=[ # addresses of connected nodes
-        ('RC','tcp://pcethtb2.cern.ch:6002'),
-        ('RO1','tcp://pcethtb1.cern.ch:6002'),
+#        ('RC','tcp://pcethtb2.cern.ch:6002'),
+        ('RC','tcp://pcminn03.cern.ch:6002'),
+#        ('RO1','tcp://pcethtb1.cern.ch:6002'),
         # ('RO2','tcp://cms-h4-03:6002'),
-        ('EVTB','tcp://pcethtb2.cern.ch:6502'),
-        ('DRCV1','tcp://cms-h4-04.cern.ch:6502'),
-        ('DRCV2','tcp://cms-h4-05.cern.ch:6502'),
-        ('table','tcp://cms-h4-01:6999')
+#        ('EVTB','tcp://pcethtb2.cern.ch:6502'),
+        ('EVTB','tcp://pcminn03.cern.ch:6502'),
+        ('DRCV1','tcp://localhost:6502'),
+#        ('DRCV1','tcp://cms-h4-04.cern.ch:6502'),
+#        ('DRCV2','tcp://cms-h4-05.cern.ch:6502'),
+#        ('table','tcp://cms-h4-01:6999')
         ]
 
     self.keepalive={} # nodes to monitor (comment to remove, never put False)
@@ -26,7 +29,7 @@ def configure(self):
 #    self.keepalive['RO1']=True
 #    self.keepalive['RO2']=False
     self.keepalive['EVTB']=True
-#    self.keepalive['DRCV1']=True
+    self.keepalive['DRCV1']=True
 #    self.keepalive['DRCV2']=True
 #    self.keepalive['table']=True
 
@@ -44,7 +47,8 @@ def configure(self):
         'free_space': None,
 #        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --eb=pcethtb2 --dr=pcethtb1',
 #        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --eb=pcethtb2 --dr=pcethtb1',
-        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb1 --eb=pcethtb1 ',
+#        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb1 --eb=pcethtb1 ',
+        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcminn03 --eb=pcminn03 --drcv=localhost --tag=H2_2016_06',
 #        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --dr=pcethtb1 --eb=pcethtb2 --drcv=cms-h4-04,cms-h4-05 --drcvrecompile',
 #       'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --eb=pcethtb2 --drcv=cms-h4-04,cms-h4-05 --drcvrecompile',
 #        'start_daemons': '../H4DAQ/scripts/startall.sh -v3 --rc=pcethtb2 --eb=pcethtb1 --dr=pcethtb1 --drcv=cms-h4-05 --drcvrecompile',
